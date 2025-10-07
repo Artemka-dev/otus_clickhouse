@@ -16,7 +16,8 @@ https://habr.com/ru/companies/yandex/articles/273305/
 
 https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/
 
-# Ответы на вопросы
+
+# Ответы на вопросы
 
 ### К каким классам систем относится ClickHouse?
 
