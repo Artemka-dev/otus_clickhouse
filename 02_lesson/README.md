@@ -29,4 +29,5 @@ ClickHouse относится к OLAP системам. ClickHouse — анал�
 
 ### Где можно получить помощь по ClickHouse и куда сообщать о багах?
 Сообщество в телеграме - @clickhouse_ru
+
 Issue трекер на github - https://github.com/ClickHouse/ClickHouse/issues
