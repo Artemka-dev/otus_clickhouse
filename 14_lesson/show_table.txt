@@ -1,0 +1,35 @@
+ch01 :) show table nyc_taxi.trips_small
+
+SHOW CREATE TABLE nyc_taxi.trips_small
+
+Query id: 64d1abcb-88b2-4f82-9a45-3c6c9454b8bc
+
+   ┌─statement────────────────────────────────────────────────────────────────────────────────────┐
+1. │ CREATE TABLE nyc_taxi.trips_small                                                           ↴│
+   │↳(                                                                                           ↴│
+   │↳    `trip_id` UInt32,                                                                       ↴│
+   │↳    `pickup_datetime` DateTime,                                                             ↴│
+   │↳    `dropoff_datetime` DateTime,                                                            ↴│
+   │↳    `pickup_longitude` Nullable(Float64),                                                   ↴│
+   │↳    `pickup_latitude` Nullable(Float64),                                                    ↴│
+   │↳    `dropoff_longitude` Nullable(Float64),                                                  ↴│
+   │↳    `dropoff_latitude` Nullable(Float64),                                                   ↴│
+   │↳    `passenger_count` UInt8,                                                                ↴│
+   │↳    `trip_distance` Float32,                                                                ↴│
+   │↳    `fare_amount` Float32,                                                                  ↴│
+   │↳    `extra` Float32,                                                                        ↴│
+   │↳    `tip_amount` Float32,                                                                   ↴│
+   │↳    `tolls_amount` Float32,                                                                 ↴│
+   │↳    `total_amount` Float32,                                                                 ↴│
+   │↳    `payment_type` Enum8('CSH' = 1, 'CRE' = 2, 'NOC' = 3, 'DIS' = 4, 'UNK' = 5),            ↴│
+   │↳    `pickup_ntaname` LowCardinality(String),                                                ↴│
+   │↳    `dropoff_ntaname` LowCardinality(String)                                                ↴│
+   │↳)                                                                                           ↴│
+   │↳ENGINE = ReplicatedMergeTree('/clickhouse/tables/{shard}/nyc_taxi/trips_small', '{replica}')↴│
+   │↳PRIMARY KEY (pickup_datetime, dropoff_datetime)                                             ↴│
+   │↳ORDER BY (pickup_datetime, dropoff_datetime)                                                ↴│
+   │↳TTL pickup_datetime + toIntervalDay(7)                                                      ↴│
+   │↳SETTINGS index_granularity = 8192                                                            │
+   └──────────────────────────────────────────────────────────────────────────────────────────────┘
+
+1 row in set. Elapsed: 0.002 sec. 

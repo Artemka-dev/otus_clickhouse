@@ -1,0 +1,29 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - localhost:9093
+
+scrape_configs:
+  - job_name: clickhouse
+    static_configs:
+      - targets: ['ch01:9363']
+        labels:
+          alias: ch01
+      - targets: ['ch02:9363']
+        labels:
+          alias: ch02
+      - targets: ['ch03:9363']
+        labels:
+          alias: ch03
+      - targets: ['ch04:9363']
+        labels:
+          alias: ch04
+    metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'up'
+        action: keep
