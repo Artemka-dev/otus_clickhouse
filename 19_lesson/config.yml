@@ -1,0 +1,20 @@
+general:
+  remote_storage: s3
+  disable_progress_bar: false
+  backups_to_keep_local: 2
+  backups_to_keep_remote: 5
+
+clickhouse:
+  username: default
+  password: "12345"
+  host: localhost
+  port: 9000
+
+s3:
+  access_key: "minioadmin"
+  secret_key: "minioadmin"
+  bucket: "clickhouse-storage"
+  endpoint: "http://minio:9000"
+  force_path_style: true
+  disable_ssl: true
+  path: "backups/"
